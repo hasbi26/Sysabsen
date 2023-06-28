@@ -17,18 +17,24 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$user = $this->user;
+
 		$data = [
 			'user' 		=> $user,
 			'users' 	=> $this->ion_auth->user()->row(),
 		];
+
 
 		if ($this->ion_auth->is_admin()) {
 			$data['info_box'] = $this->admin_box();
 			$plotting  = array('1', '2', '3', '4', '5', '6', '7');
 			$plotting2 = array('1', '2', '3', '4');
 			$data['get_plot'] = $this->dashboard->get_max($plotting)->result();
-			$data['get_plot2'] = $this->dashboard->get_max2($plotting2)->result();
+			// $data['get_plot2'] = $this->dashboard->get_max2($plotting2)->result();
+			// var_dump("group", $data['get_plot2']);
+			// die;
 		}
+
+
 		$this->template->load('template/template', 'dashboard/dashboard', $data);
 	}
 

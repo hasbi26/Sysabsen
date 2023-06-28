@@ -44,6 +44,7 @@
                                     <option id="csv">Ekspor sebagai CSV</option>
                                     <option id="print">Cetak Data</option>
                                     <option id="pdf">Ekspor sebagai PDF</option>
+                                    <option id="email">Email</option>
                                 </select>
                             </div>
                         </div>
@@ -84,6 +85,7 @@
     let checkLogin = '<?= $result ?>';
 </script>
 <script src="<?php echo base_url() ?>assets/app/datatables/presensi.js" charset="utf-8"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
     $(document).ready(function() {
         if (checkLogin == 0) {

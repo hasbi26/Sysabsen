@@ -1,3 +1,4 @@
+
 let table;
 
 $(document).ready(function () {
@@ -141,6 +142,16 @@ $(document).ready(function () {
         initComplete: function () {
             var $buttons = $('.dt-buttons').hide();
             $('#exportLink').on('change', function () {
+
+
+                if ($("#exportLink").val() == "Email"){
+
+                    console.log("value email")
+                    sendMail();
+
+
+                }
+
                 var btnClass = $(this).find(":selected")[0].id
                     ? '.buttons-' + $(this).find(":selected")[0].id
                     : null;
@@ -163,3 +174,37 @@ $(document).ready(function () {
         });
     }).draw();
 });
+
+
+
+function sendMail() {
+
+
+    console.log("sendmail")
+    
+    
+    var link = "mailto:hasbisimaulansyah@gmail.com"
+    + "?cc=airasigihumaira@gmail.com"
+    + "&subject=" + encodeURIComponent("This is my subject")
+    + "&body=" + encodeURIComponent("test email")
+;
+
+window.location.href = link;
+    
+    
+    
+    
+    // Email.send({
+    //     Host : "smtp.elasticemail.com",
+    //     Username : "hasbisimaulansyah@gmail.com",
+    //     Password : "B93AF37F533234BAC12024848BF3975989D0",
+    //     To : "airasigihumaira@gmail.com",
+    //     From : "hasbisimaulansyah@gmail.com",
+    //     Subject : "This is the subject",
+    //     Body : "And this is the body"
+    // }).then(
+    //   message => alert(message)
+    // );
+
+}
+
